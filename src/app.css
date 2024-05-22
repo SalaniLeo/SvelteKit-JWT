@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap");
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+:root{
+    /* Used for ui elements background. Use appropriate proportions for each one */
+    --primary-color: #191919;
+    --secondary-color: #242424;
+    --tertiary-color: #4f4f4f;
+  
+    /* Used for shadows, under ui elements */
+     --shadow-color-heavy: #0a0a0aad;
+     --shadow-color-medium: #00000080;
+     --shadow-color-light: #00000042;
+  
+    /* Used to refine a page colors, to give a personal touch */
+    --accent-color-primary: #494949;
+    --accent-color-secondary: #3b3b3b;
+
+    /* Outline types */
+    --outline-inactive: #767676;
+    --outline-active: #767676;
+
+    /* Used to refine a page colors, to give a personal touch */
+    --font-primary-color: #e5e2df;
+    --font-secondary-color: #9d9d9d;
+    --font-link-color: #d9e5e4;
+    --font-error-color: #923939;
+    --font-warning-color: #926939;
+  
+    /* Different elements may need a border, use with caution, might not look good everywhere */
+    --border-width-primary: 6px;
+    --border-width-secondary: 2px;
+  
+    --border-radius-light: 8px;
+    --border-radius-medium: 8px;
+    --border-radius-heavy: 16px;
+  }
+  
+  [data-theme="light"] {
+  
+    /* Used for ui elements background. Use appropriate proportions for each one */
+    --primary-color: #e5e2df;
+    --secondary-color: #fefefe;
+    --tertiary-color: #e0e0e0;
+  
+    /* Used for shadows, under ui elements */
+    --shadow-color-heavy: #0a0a0ace;
+    --shadow-color-medium: #00000080;
+    --shadow-color-light: #00000042;
+
+    --shadow-heavy: var(--shadow-color-heavy) 0px 0px 10px;
+    
+    /* Used to refine a page colors, to give a personal touch */
+    --accent-color-primary: #d9e5e4;
+    --accent-color-secondary: #d9e5e4;
+
+    /* Outline types */
+    --outline-inactive: #767676;
+    --outline-active: #767676;
+
+    /* Font colors, different types of text need different colors */
+    --font-primary-color: #111111;
+    --font-secondary-color: #636363;
+    --font-link-color: #3d3d3d;
+    --font-error-color: #923939;
+    --font-warning-color: #e6b175;
+
+    /* Different elements may need a border, use with caution, might not look good everywhere */
+    --border-width-primary: 6px;
+    --border-width-secondary: 2px;
+  
+    --border-radius-light: 8px;
+    --border-radius-medium: 8px;
+    --border-radius-heavy: 16px;
+  }
+
+  * {
+    transition-duration: 0.25s !important;
+    font-family: "Josefin Sans", sans-serif;
+    color: var(--font-primary-color);  
+}
+
+  .root {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body{
+    margin: 0px;
+    background-color: var(--primary-color);
+  }
+
+  a, .link {
+    color: var(--font-link-color);
+    min-width: fit-content;
+  }
+
+  .container {
+    height: 14rem;
+    width: 24rem;
+    padding: 1.5rem;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius-heavy);
+    box-shadow: var(--shadow-color-medium) 0px 0px 10px;
+  }
+  
+  button {
+    background-color: var(--accent-color-primary);
+    border: none;
+    border-radius: var(--border-radius-light);
+    padding: 0.75rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-color-light) 0px 0px 10px;
+  }
+
+  button:hover {
+    box-shadow: var(--shadow-color-medium) 0px 0px 5px;
+    background-color: var(--accent-color-secondary);
+  }
+
+  button:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  button:disabled:hover {
+    box-shadow: var(--shadow-color-light) 0px 0px 10px;
+    background-color: var(--accent-color-primary);
+  }
+
+  .roundButton{
+    min-width: 3rem;
+    min-height: 3rem;
+    border-radius: 50% !important;
+  }
+
+  /* .outlineButton{
+    border-radius: var(--border-radius-heavy);
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid var(--outline-button);
+  } */
+
+  input[type="text"], input[type="password"]{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--outline-active);
+  }
+
+  input[type="text"]:focus, input[type="password"]:focus{
+    outline: none;
+  }
+
+  nav {
+    color: var(--text-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: var(--accent-color-primary);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 12rem;
+    margin-right: 12rem;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-color-heavy) 0px 0px 10px;
+    text-align: center;
+    align-items: center;
+}
+
+nav > .left {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+}
+
+nav > .center {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+nav > .right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    align-items: center;
+}
+
+nav p {
+    padding: 0px;
+    margin: 0px !important;
+}
+
+#theme-select {
+    display: flex;
+    justify-content: right;
+}
+
+.themer {
+    scale: 115%;
+    display: flex;
+    align-items: center;
+    width: 20px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+    nav {
+        margin-left: 8rem;
+        margin-right: 8rem;
+    }
+}
+@media screen and (max-width: 1000px) {
+    nav {
+        margin-left: 4rem;
+        margin-right: 4rem;
+    }
+    nav .hide2 {
+        display: none;
+    }
+}
+@media screen and (max-width: 720px) {
+    nav {
+        margin: 0rem !important;
+        border-radius: 0px;
+        grid-template-columns: 0.5fr 2fr 0.5fr;
+    }
+    nav .hide1 {
+        display: none;
+    }
+    #releases,
+    #issues,
+    .spacer {
+        display: none;
+    }
+}
