@@ -77,6 +77,7 @@
     transition-duration: 0.25s !important;
     font-family: "Josefin Sans", sans-serif;
     color: var(--font-primary-color);  
+    text-decoration: none;
 }
 
   .root {

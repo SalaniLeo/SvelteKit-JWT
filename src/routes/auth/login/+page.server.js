@@ -25,24 +25,14 @@ export const actions = {
             })
         });
 
-        if (response.ok) {
-            const json = await response.json();
-            isUserLogged.set('true')
+        const json = await response.json();
+        if (json['status'] === 200) {
             cookies.set('accessToken', json.user.token, { path: '/', secure: false, maxAge: 24 * 60 * 60 * 30 } );
             throw redirect(303, '/');
-        }
-
-        if (response.status === 401) {
-            return fail(401, {
-                error: "Incorrect username or password",
+        } else {
+            return fail(json['status'], {
+                error: json['response'],
                 state: "var(--font-error-color)"
-            });
-        }
-
-        if (response.status === 400) {
-            return fail(404, {
-                error: "User not found, sign in instead",
-                state: "var(--font-warning-color)"
             });
         }
     }

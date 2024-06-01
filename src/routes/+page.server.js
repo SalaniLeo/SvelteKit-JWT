@@ -34,10 +34,3 @@ export async function load({ cookies, params }) {
 		cookies.set('loggedIn', 'false', { secure: false, path: '/' })
 	}
 }
-
-export const actions = {
-	logout: async ( cookies ) => {
-		cookies.cookies.set('loggedIn', "false", { secure: false, path: '/' })
-		cookies.cookies.delete("accessToken", { secure: false, path: '/' })
-	}
-};

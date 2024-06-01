@@ -25,21 +25,12 @@ export const actions = {
         });
 
         const json = await response.json();
-
-        if (response.ok) {
+        if (json['status'] === 200) {
             cookies.set('accessToken', json.user.token, { path: '/', secure: false, maxAge: 24 * 60 * 60 * 30 } );
             throw redirect(303, '/');
-        }
-
-        if (response.status === 401) {
-            return fail(403, {
-                error: json.response,
-                state: "var(--font-error-color)"
-            });
-        }
-        if (response.status === 500) {
-            return fail(403, {
-                error: json.response,
+        } else {
+            return fail(json['status'], {
+                error: json['response'],
                 state: "var(--font-error-color)"
             });
         }
